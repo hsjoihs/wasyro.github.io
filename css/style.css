@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+body {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+	background-color: #2c3e50;
+}
+
+html {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+p {
+	font-family: "Regular";
+	letter-spacing: 0.08em;
+}
+
+#CopyRight {
+	color: #ffffff;
+	opacity: 0.2;
+}
+
+.boxtitle > section > p {
+	font-family: "Bold";
+}
+
+#icon {
+	width: 100px;
+	height: auto;
+	margin-bottom: 30px;
+	border-radius: 50%;
+}
+
+#mainbox {
+	text-align: center;
+	width: 800px;
+	height: 400px;
+	background-color: #ecf0f1;
+	border-radius: 10px;
+	overflow: hidden;
+	margin: auto;
+}
+
+.boxtitle, .boxcontent{
+	width: 400%;
+	-webkit-transition: -webkit-transform 0.6s;
+	transition: transform 0.6s;
+}
+
+.boxtitle section{
+	float: left;
+	width: 800px;
+	height: 50px;
+	border-width: 3px;
+	border-color: #404040;
+	border-bottom-style: solid;
+}
+
+.boxtitle section p{
+	font-size: 30px;
+	margin: 10px;
+	color: #404040;
+	vertical-align: bottom;
+	text-align: center;
+	opacity: 0.5;
+	transition: opacity 0.3s;
+}
+
+.boxcontent section{
+	float: left;
+	width: 800px;
+	opacity: 1;
+	transition: opacity 0.3s;
+	height: 50px;
+}
+
+.boxcontent section p {
+	margin-left: 50px;
+	text-align: left;
+	font-size: 20px;
+	color: #404040;
+	opacity: 0.5;
+	line-height: 3em;
+}
+
+a:link, a:visited {
+	color: #404040;
+}
+
+a:hover {
+	opacity: 0.7;
+}
+
+.button {
+	text-align: center;
+	width: 800px;
+	height: 40px;
+	border: 0;
+	padding: 0;
+	display: table;
+	border-collapse: separate;
+	border-spacing: 40px;
+	margin: auto;
+}
+
+.button label {
+	display: block;
+}
+
+.button li {
+	color: #404040;
+	width: 150px;
+	height: 40px;
+	font-size: 20px;
+	display: table-cell;
+	text-align: center;
+	background-color: #ecf0f1;
+	border-radius: 6px;
+	vertical-align: middle;
+	opacity: 0.6;
+	z-index: 1;
+}
+
+[name="switch"] {
+	display: none;
+}
+
+.button li:hover {
+	opacity: 1.0;
+}
+
+.button label:hover {
+	cursor: pointer;
+}
+
+#tabAbout:checked ~ .button > li:nth-child(1),
+#tabLikes:checked ~ .button > li:nth-child(2),
+#tabProducts:checked ~ .button > li:nth-child(3),
+#tabLinks:checked ~ .button > li:nth-child(4){
+	opacity: 1;
+}
+
+#tabAbout:checked ~ #mainbox > .boxtitle > section:nth-child(1) > p,
+#tabLikes:checked ~ #mainbox >.boxtitle > section:nth-child(2) > p,
+#tabProducts:checked ~ #mainbox > .boxtitle > section:nth-child(3) > p,
+#tabLinks:checked ~ #mainbox > .boxtitle > section:nth-child(4) > p {
+	opacity: 1;
+}
+
+#tabAbout:checked ~ #mainbox > .boxcontent > section:nth-child(1) > p,
+#tabLikes:checked ~ #mainbox >.boxcontent > section:nth-child(2) > p,
+#tabProducts:checked ~ #mainbox > .boxcontent > section:nth-child(3) > p,
+#tabLinks:checked ~ #mainbox > .boxcontent > section:nth-child(4) > p {
+	opacity: 1;
+}
+
+#tabAbout:checked ~ #mainbox > .boxtitle {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+}
+
+#tabLikes:checked ~ #mainbox > .boxtitle {
+	-webkit-transform: translateX(-25%);
+	transform: translateX(-25%);
+}
+
+#tabProducts:checked ~ #mainbox > .boxtitle {
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+#tabLinks:checked ~ #mainbox > .boxtitle {
+	-webkit-transform: translateX(-75%);
+	transform: translateX(-75%);
+}
+
+#tabAbout:checked ~ #mainbox > .boxcontent {
+	-webkit-transform: translateX(0);
+	transform: translateX(0);
+}
+
+#tabLikes:checked ~ #mainbox > .boxcontent {
+	-webkit-transform: translateX(-25%);
+	transform: translateX(-25%);
+}
+
+#tabProducts:checked ~ #mainbox > .boxcontent {
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+#tabLinks:checked ~ #mainbox > .boxcontent {
+	-webkit-transform: translateX(-75%);
+	transform: translateX(-75%);
+}
