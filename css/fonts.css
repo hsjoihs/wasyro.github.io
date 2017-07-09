@@ -4,9 +4,11 @@
 		url("../fonts/vegur/Vegur-Regular.otf") format("OpenType"),
 		url("../fonts/vegur/Vegur-Regular.svg") format("svg"),
 		url("../fonts/vegur/Vegur-Regular.woff") format("woff"),
+		url("../fonts/vegur/Vegur-Regular.eot") format("embedded-opentype"),
 		url("../fonts/higashiome/HigashiOme-Gothic-C.ttf") format("TrueType"),
 		url("../fonts/higashiome/HigashiOme-Gothic-C.svg") format("svg"),
-		url("../fonts/higashiome/HigashiOme-Gothic-C.woff") format("woff");
+		url("../fonts/higashiome/HigashiOme-Gothic-C.woff") format("woff"),
+		url("../fonts/higashiome/HigashiOme-Gothic-C.eot") format("embedded-opentype");
 }
 
 @font-face {
@@ -15,9 +17,11 @@
 		url("../fonts/vegur/Vegur-Bold.otf") format("OpenType"),
 		url("../fonts/vegur/Vegur-Bold.svg") format("svg"),
 		url("../fonts/vegur/Vegur-Bold.woff") format("woff"),
+		url("../fonts/vegur/Vegur-Bold.eot") format("embedded-opentype"),
 		url("../fonts/higashiome/HigashiOme-Gothic-C.ttf") format("TrueType"),
 		url("../fonts/higashiome/HigashiOme-Gothic-C.svg") format("svg"),
-		url("../fonts/higashiome/HigashiOme-Gothic-C.woff") format("woff");
+		url("../fonts/higashiome/HigashiOme-Gothic-C.woff") format("woff"),
+		url("../fonts/higashiome/HigashiOme-Gothic-C.eot") format("embedded-opentype");
 }
 
 @font-face {
@@ -26,7 +30,9 @@
 		url("../fonts/vegur/Vegur-Light.otf") format("OpenType"),
 		url("../fonts/vegur/Vegur-Light.svg") format("svg"),
 		url("../fonts/vegur/Vegur-Light.woff") format("woff"),
+		url("../fonts/vegur/Vegur-Light.eot") format("embedded-opentype"),
 		url("../fonts/higashiome/HigashiOme-Gothic-C.ttf") format("TrueType"),
 		url("../fonts/higashiome/HigashiOme-Gothic-C.svg") format("svg"),
-		url("../fonts/higashiome/HigashiOme-Gothic-C.woff") format("woff");
+		url("../fonts/higashiome/HigashiOme-Gothic-C.woff") format("woff"),
+		url("../fonts/higashiome/HigashiOme-Gothic-C.eot") format("embedded-opentype");
 }
