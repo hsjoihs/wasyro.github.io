@@ -1,4 +1,82 @@
-int numberOfSamples = 100;
+class Sample {
+  float x;
+  float y;
+  float diameter = 15;
+  int cluster;
+  float prob;
+  boolean isCentroid;
+
+  // constructor
+  Sample(float _x, float _y) {
+    x = _x;
+    y = _y;
+    prob = 0;
+    isCentroid = false;
+  }
+
+  void show() {
+    ellipseMode(CENTER);
+    ellipse(x, y, diameter, diameter);
+  }
+}
+
+class Centroid {
+  float x;
+  float y;
+  float size = 15;
+  int cluster;
+
+  // constructor
+  Centroid(float _x, float _y, int _cluster) {
+    x = _x;
+    y = _y;
+    cluster = _cluster;
+  }
+
+  void moveTo(float xTarget, float yTarget) {
+    float xVelocity = (xTarget - x) / 10.0;
+    float yVelocity = (yTarget - y) / 10.0;
+    
+    x += xVelocity;
+    y += yVelocity;
+  }
+
+  void show() {
+    rectMode(CENTER);
+    rect(x, y, size, size);
+    rectMode(CORNER);
+  }
+}
+
+class Button {
+  float x;
+  float y;
+  float w;
+  float h;
+
+  Button(float _x, float _y, float _w, float _h) {
+    x = _x;
+    y = _y;
+    w = _w;
+    h = _h;
+  }
+
+  boolean isMouseOnButton() {
+    if (x <= mouseX && mouseX <= x + w
+       && y <= mouseY && mouseY <= y + h) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  void show() {
+    rect(x, y, w, h);
+  }
+}
+
+
+int numberOfSamples = 500;
 int numberOfClusters = 5;
 
 Sample samples[] = new Sample[numberOfSamples];
@@ -175,44 +253,47 @@ void chooseFirstCentroid() {
 void chooseCentroid() {
   // choose which sample is as a centroid
   // closer to a centroid, higher probability
-  FloatList probs = new FloatList();
+  float[] probs = new float[0];
   int centroidIndexOnProbs = 0;
-  
+
   for (int i = 0; i < samples.length; i++) {
     if (!samples[i].isCentroid) {
-      probs.append(samples[i].prob);
+      probs = append(probs, samples[i].prob);
     }
   }
 
   // append 0 to head of probs
-  probs.reverse();
-  probs.append(0.0);
-  probs.reverse();
+  probs = reverse(probs);
+  probs = append(probs, 0.0);
+  probs = reverse(probs);
 
-  for (int i = 1; i < probs.size(); i++) {
-    probs.add(i, probs.get(i - 1));
+  for (int i = 1; i < probs.length; i++) {
+    probs[i] += probs[i - 1];
   }
 
-  float centroidGenerator = random(0, probs.get(probs.size() - 1));
-  for (int i = 0; i < probs.size() - 1; i++) {
-    if (probs.get(i) < centroidGenerator
-      && centroidGenerator <= probs.get(i + 1)) {
+  float centroidGenerator = random(0, probs[probs.length - 1]);
+  for (int i = 0; i < probs.length - 1; i++) {
+    if (probs[i] < centroidGenerator
+      && centroidGenerator <= probs[i + 1]) {
       centroidIndexOnProbs = i;
       break;
     }
   }
 
-  int centroidIndex = centroidIndexOnProbs;
-  for (int i = 0; i <= centroidIndexOnProbs; i++) {
-    if(samples[i].isCentroid) {
-      centroidIndex++;
+  int[] probsToSamples = new int[0];
+  for (int i = 0; i < numberOfSamples; i++) {
+    if (!samples[i].isCentroid) {
+      probsToSamples = append(probsToSamples, i);
     }
   }
+
+  int centroidIndex = probsToSamples[centroidIndexOnProbs];
 
   int cluster = centroids.size();
   centroids.add(new Centroid(samples[centroidIndex].x, samples[centroidIndex].y, cluster));
   samples[centroidIndex].isCentroid = true;
 }
+
 void initClusters() {
   for (int i = 0; i < numberOfSamples; i++) {
     samples[i].cluster = 0;
