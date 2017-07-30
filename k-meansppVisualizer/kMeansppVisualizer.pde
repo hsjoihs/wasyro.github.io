@@ -80,7 +80,6 @@ int numberOfSamples = 500;
 int numberOfClusters = 5;
 
 Sample samples[] = new Sample[numberOfSamples];
-Float sampleProbs[] = new Float[numberOfSamples]; // probability distribution
 ArrayList<Centroid> centroids;
 Button nextButton;
 
