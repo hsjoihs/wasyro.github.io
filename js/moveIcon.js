@@ -27,8 +27,6 @@ $(function() {
             } else {
                 return false;
             }
-        },
-        ease: function() {
         }
     });
 
